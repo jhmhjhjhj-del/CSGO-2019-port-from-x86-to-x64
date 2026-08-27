@@ -1,0 +1,82 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_stub_grant.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/popups/stub_grant_data.js" />
+		<include src="file://{resources}/scripts/popups/popup_stub_grant.js" />
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel stub-grant-window"
+		useglobalcontext="true"
+		popupbackground="dim"
+		onload="StubGrant.Init();">
+
+		<Panel id="StubGrantTitleBar" class="PopupTitle stub-grant-titlebar" draggable="true">
+			<Label class="stub-grant-title-text" text="Grant item (offline)" />
+		</Panel>
+
+		<Panel class="stub-grant-tabs">
+			<RadioButton group="stubgrant" id="src_weapon" selected="true" onactivate="StubGrant.SetSource('src_weapon')">
+				<Label text="Weapons"/>
+			</RadioButton>
+			<RadioButton group="stubgrant" id="src_knife" onactivate="StubGrant.SetSource('src_knife')">
+				<Label text="Knives"/>
+			</RadioButton>
+			<RadioButton group="stubgrant" id="src_glove" onactivate="StubGrant.SetSource('src_glove')">
+				<Label text="Gloves"/>
+			</RadioButton>
+			<RadioButton group="stubgrant" id="src_case" onactivate="StubGrant.SetSource('src_case')">
+				<Label text="Cases"/>
+			</RadioButton>
+			<RadioButton group="stubgrant" id="src_sticker" onactivate="StubGrant.SetSource('src_sticker')">
+				<Label text="Stickers"/>
+			</RadioButton>
+			<RadioButton group="stubgrant" id="src_tool" onactivate="StubGrant.SetSource('src_tool')">
+				<Label text="Tools"/>
+			</RadioButton>
+			<RadioButton group="stubgrant" id="src_spray" onactivate="StubGrant.SetSource('src_spray')">
+				<Label text="Sprays"/>
+			</RadioButton>
+			<RadioButton group="stubgrant" id="src_music" onactivate="StubGrant.SetSource('src_music')">
+				<Label text="Music"/>
+			</RadioButton>
+			<RadioButton group="stubgrant" id="src_medal" onactivate="StubGrant.SetSource('src_medal')">
+				<Label text="Medals"/>
+			</RadioButton>
+		</Panel>
+
+		<Panel class="stub-grant-split">
+			<Panel id="StubGrantCaseCol" class="stub-grant-col">
+				<Label id="StubGrantSideHead" class="stub-grant-col-head" text="Weapon"/>
+				<Panel class="stub-grant-list-wrap">
+					<Panel id="StubGrantCaseList" class="stub-grant-list"/>
+				</Panel>
+			</Panel>
+			<Panel class="stub-grant-col stub-grant-col-main">
+				<Label id="StubGrantItemHead" class="stub-grant-col-head" text="Skins"/>
+				<Panel class="stub-grant-list-wrap">
+					<Panel id="StubGrantList" class="stub-grant-list"/>
+				</Panel>
+			</Panel>
+		</Panel>
+
+		<Panel id="StubGrantOpts" class="stub-grant-opts">
+			<Label class="stub-grant-opts-label" text="Wear"/>
+			<DropDown id="StubGrantWear" class="stub-grant-wear" oninputsubmit="StubGrant.OnWearChanged()">
+			</DropDown>
+			<ToggleButton id="StubGrantStatTrak" class="stub-grant-st" onactivate="StubGrant.OnStatTrakToggle()">
+				<Label text="StatTrak™"/>
+			</ToggleButton>
+		</Panel>
+
+		<Label id="StubGrantStatus" class="stub-grant-status" text=""/>
+
+		<Panel class="PopupButtonRow">
+			<TextButton class="PopupButton" text="Grant" onactivate="StubGrant.OnGrant();" />
+			<TextButton class="PopupButton" text="#UI_Cancel" onactivate="UIPopupButtonClicked()" />
+		</Panel>
+	</PopupCustomLayout>
+</root>

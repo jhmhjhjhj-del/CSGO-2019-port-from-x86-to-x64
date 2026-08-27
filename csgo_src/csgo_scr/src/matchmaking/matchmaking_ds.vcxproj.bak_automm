@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>Matchmaking_DS (CSGO)</ProjectName>
+    <ProjectGuid>{0E50E6BF-FA8E-9342-4C8A-5BA859965CA5}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>matchmaking_ds</TargetName>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <TargetName>matchmaking_ds</TargetName>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug_csgo_DS\.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug_csgo_DS\.\</IntDir>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreLinkEventUseInBuild>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release_csgo_DS\.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release_csgo_DS\.\</IntDir>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <ExecutablePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\devtools\vstools;$(ExecutablePath);$(Path)</ExecutablePath>
+    <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreBuildEventUseInBuild>
+    <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PreLinkEventUseInBuild>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent >
+      <Command>if EXIST ..\..\game\csgo\bin\.\$(TargetFileName) for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\game\csgo\bin\.\$(TargetFileName)&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;..\devtools\bin\vpc.exe -crc2 &quot;matchmaking_ds.vcxproj&quot;&#x0D;&#x0A;</Command>
+    </PreBuildEvent>
+    <ClCompile >
+      <AdditionalOptions> /Gw /Zc:threadSafeInit-</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\common;..\public;..\public\tier0;..\public\tier1;..\gcsdk\steamextra;..\common;..\thirdparty\protobuf-2.5.0\src;..\common\xlast_csgo</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;CSTRIKE_REL_BUILD=1;RAD_TELEMETRY_DISABLED;INCLUDE_SCALEFORM;PANORAMA_ENABLE;SURVIVAL_MODE_ENABLED=1;DEVELOPMENT_ONLY=1;_HAS_ITERATOR_DEBUGGING=0;WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;DLLNAME=matchmaking_ds;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;NO_STEAM;COMPILER_MSVC32;COMPILER_MSVC;MEMOVERRIDE_MODULE=matchmaking_ds;_DLL_EXT=.dll;DLLNAME=matchmaking_ds;AVI_VIDEO;WMV_VIDEO;CSTRIKE15;NO_STRING_T;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;NO_STEAM_GAMECOORDINATOR;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;MATCHMAKING_DS_DLL;SWDS;_DLL_EXT=.dll;_DLL_PREFIX=;_EXTERNAL_DLL_EXT=.dll;PROJECTDIR=C:\Games\CSGO\csgo_src\csgo_scr\src\matchmaking;VPCGAME=csgo;VPCGAMECAPS=CSGO</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AssemblerListingLocation>$(IntDir)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)/</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>;4316;4061;4062;4091;4097;4100;4121;4127;4191;4201;4239;4242;4244;4250;4254;4255;4263;4264;4265;4266;4296;4302;4311;4316;4324;4350;4351;4355;4365;4371;4388;4435;4464;4471;4481;4505;4511;4512;4514;4530;4544;4547;4548;4571;4574;4577;4587;4611;4619;4623;4625;4626;4628;4640;4647;4668;4702;4710;4711;4738;4748;4774;4777;4786;4820;4826;4868;4883;4917;4928;4946;4986;4987;4996;5026;5027;5029;5031;5032</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <ResourceCompile >
+      <PreprocessorDefinitions>;_DEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>1033</Culture>
+    </ResourceCompile>
+    <PreLinkEvent  />
+    <Link >
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+      <AdditionalDependencies>;shell32.lib;user32.lib;advapi32.lib;gdi32.lib;comdlg32.lib;ole32.lib;wsock32.lib;ws2_32.lib;wininet.lib;wsock32.lib;ws2_32.lib;wininet.lib</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)\matchmaking_ds.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\lib\common\.;..\lib\public\.</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libc;libcd;libcmt</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)/$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <BaseAddress> </BaseAddress>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkErrorReporting>PromptImmediately</LinkErrorReporting>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Manifest >
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Manifest>
+    <Xdcmake >
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake >
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/matchmaking_ds.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent >
+      <Message>Publishing to ..\..\game\csgo\bin\.</Message>
+      <Command>if exist ..\..\game\csgo\bin\. goto ValveStart&#x0D;&#x0A;mkdir ..\..\game\csgo\bin\.&#x0D;&#x0A;:ValveStart&#x0D;&#x0A;call ..\vpc_scripts\valve_p4_edit.cmd ..\..\game\csgo\bin\.\$(TargetFileName) ..&#x0D;&#x0A;copy &quot;$(TargetDir)&quot;$(TargetFileName) ..\..\game\csgo\bin\.\$(TargetFileName)&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;if exist &quot;$(TargetDir)&quot;$(TargetName).map copy &quot;$(TargetDir)&quot;$(TargetName).map ..\..\game\csgo\bin\.\$(TargetName).map&#x0D;&#x0A;call ..\vpc_scripts\valve_p4_edit.cmd ..\..\game\csgo\bin\.\$(TargetName).pdb ..&#x0D;&#x0A;copy &quot;$(TargetDir)&quot;$(TargetName).pdb ..\..\game\csgo\bin\.\$(TargetName).pdb&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;goto BuildEventOK&#x0D;&#x0A;:BuildEventFailed&#x0D;&#x0A;echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***&#x0D;&#x0A;del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;exit 1&#x0D;&#x0A;:BuildEventOK&#x0D;&#x0A;</Command>
+    </PostBuildEvent>
+    <CustomBuildStep  />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent >
+      <Command>if EXIST ..\..\game\csgo\bin\.\$(TargetFileName) for /f &quot;delims=&quot; %%A in (&apos;attrib &quot;..\..\game\csgo\bin\.\$(TargetFileName)&quot;&apos;) do set valveTmpIsReadOnly=&quot;%%A&quot;&#x0D;&#x0A;set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%&#x0D;&#x0A;if &quot;%valveTmpIsReadOnlyLetter%&quot;==&quot;R&quot; del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;..\devtools\bin\vpc.exe -crc2 &quot;matchmaking_ds.vcxproj&quot;&#x0D;&#x0A;</Command>
+    </PreBuildEvent>
+    <ClCompile >
+      <AdditionalOptions> /MP /d2Zi+ /Gw /Zc:threadSafeInit-</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>..\common;..\public;..\public\tier0;..\public\tier1;..\gcsdk\steamextra;..\common;..\thirdparty\protobuf-2.5.0\src;..\common\xlast_csgo</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>VPC;CSTRIKE_REL_BUILD=1;RAD_TELEMETRY_DISABLED;INCLUDE_SCALEFORM;PANORAMA_ENABLE;SURVIVAL_MODE_ENABLED=1;WIN32;_WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;DLLNAME=matchmaking_ds;_ALLOW_RUNTIME_LIBRARY_MISMATCH;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_MSC_VER_MISMATCH;%(PreprocessorDefinitions);COMPILER_MSVC32;NO_STEAM;COMPILER_MSVC32;COMPILER_MSVC;MEMOVERRIDE_MODULE=matchmaking_ds;_DLL_EXT=.dll;DLLNAME=matchmaking_ds;AVI_VIDEO;WMV_VIDEO;CSTRIKE15;NO_STRING_T;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;NO_STEAM_GAMECOORDINATOR;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;MATCHMAKING_DS_DLL;SWDS;_DLL_EXT=.dll;_DLL_PREFIX=;_EXTERNAL_DLL_EXT=.dll;PROJECTDIR=C:\Games\CSGO\csgo_src\csgo_scr\src\matchmaking;VPCGAME=csgo;VPCGAMECAPS=CSGO</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AssemblerListingLocation>$(IntDir)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)/</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>;4316;4061;4062;4091;4097;4100;4121;4127;4191;4201;4239;4242;4244;4250;4254;4255;4263;4264;4265;4266;4296;4302;4311;4316;4324;4350;4351;4355;4365;4371;4388;4435;4464;4471;4481;4505;4511;4512;4514;4530;4544;4547;4548;4571;4574;4577;4587;4611;4619;4623;4625;4626;4628;4640;4647;4668;4702;4710;4711;4738;4748;4774;4777;4786;4820;4826;4868;4883;4917;4928;4946;4986;4987;4996;5026;5027;5029;5031;5032</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BrowseInformationFile>$(IntDir)/</BrowseInformationFile>
+      <ErrorReporting>Prompt</ErrorReporting>
+    </ClCompile>
+    <ResourceCompile >
+      <PreprocessorDefinitions>;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>1033</Culture>
+    </ResourceCompile>
+    <PreLinkEvent  />
+    <Link >
+      <AdditionalOptions> /ignore:4221</AdditionalOptions>
+      <AdditionalDependencies>;shell32.lib;user32.lib;advapi32.lib;gdi32.lib;comdlg32.lib;ole32.lib;wsock32.lib;ws2_32.lib;wininet.lib;wsock32.lib;ws2_32.lib;wininet.lib</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)\matchmaking_ds.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\lib\common\.;..\lib\public\.</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libc;libcd;libcmtd</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)/$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <BaseAddress> </BaseAddress>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkErrorReporting>PromptImmediately</LinkErrorReporting>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Manifest >
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Manifest>
+    <Xdcmake >
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Xdcmake>
+    <Bscmake >
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>$(OutDir)/matchmaking_ds.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent >
+      <Message>Publishing to ..\..\game\csgo\bin\.</Message>
+      <Command>if exist ..\..\game\csgo\bin\. goto ValveStart&#x0D;&#x0A;mkdir ..\..\game\csgo\bin\.&#x0D;&#x0A;:ValveStart&#x0D;&#x0A;call ..\vpc_scripts\valve_p4_edit.cmd ..\..\game\csgo\bin\.\$(TargetFileName) ..&#x0D;&#x0A;copy &quot;$(TargetDir)&quot;$(TargetFileName) ..\..\game\csgo\bin\.\$(TargetFileName)&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;if exist &quot;$(TargetDir)&quot;$(TargetName).map copy &quot;$(TargetDir)&quot;$(TargetName).map ..\..\game\csgo\bin\.\$(TargetName).map&#x0D;&#x0A;call ..\vpc_scripts\valve_p4_edit.cmd ..\..\game\csgo\bin\.\$(TargetName).pdb ..&#x0D;&#x0A;copy &quot;$(TargetDir)&quot;$(TargetName).pdb ..\..\game\csgo\bin\.\$(TargetName).pdb&#x0D;&#x0A;if ERRORLEVEL 1 goto BuildEventFailed&#x0D;&#x0A;goto BuildEventOK&#x0D;&#x0A;:BuildEventFailed&#x0D;&#x0A;echo *** ERROR! PostBuildStep FAILED for $(ProjectName)! EXE or DLL is probably running. ***&#x0D;&#x0A;del /q &quot;$(TargetDir)&quot;$(TargetFileName)&#x0D;&#x0A;exit 1&#x0D;&#x0A;:BuildEventOK&#x0D;&#x0A;</Command>
+    </PostBuildEvent>
+    <CustomBuildStep  />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Library Include="..\lib\public\gcsdk.lib" />
+    <Library Include="..\lib\public\interfaces.lib" />
+    <Library Include="..\lib\public\matchmakingbase_ds.lib" />
+    <Library Include="..\lib\public\mathlib.lib" />
+    <Library Include="..\lib\public\tier0.lib" />
+    <Library Include="..\lib\public\tier1.lib" />
+    <Library Include="..\lib\public\tier2.lib" />
+    <Library Include="..\lib\public\tier3.lib" />
+    <Library Include="..\lib\public\vstdlib.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cstrike15\mm_title.h" />
+    <ClInclude Include="cstrike15\mm_title_contextvalues.h" />
+    <ClInclude Include="cstrike15\mm_title_richpresence.h" />
+    <ClInclude Include="..\game\shared\cstrike15\gametypes.h" />
+    <ClInclude Include="..\public\gametypes\igametypes.h" />
+    <ClInclude Include="..\common\platforminputdevice.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cstrike15\mm_title.cpp" />
+    <ClCompile Include="cstrike15\mm_title_gamesettingsmgr.cpp" />
+    <ClCompile Include="cstrike15\mm_title_main.cpp" />
+    <ClCompile Include="cstrike15\mm_title_richpresence.cpp" />
+    <ClCompile Include="cstrike15\mm_title_titledata.cpp" />
+    <ClCompile Include="..\game\shared\cstrike15\gametypes.cpp" />
+    <ClCompile Include="..\common\platforminputdevice.cpp" />
+    <ClCompile Include="..\public\tier0\crtoverride.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\common\debug_dll_check.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\public\tier0\memoverride.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="..\vpc_scripts\loadaddress.vpc" />
+    <None Include="_vpc_\manifest_matchmaking_ds\win32\manifest.txt" />
+    <None Include="matchmaking_cstrike15_ds.vpc" />
+    <None Include="matchmaking_cstrike15_inc.vpc" />
+    <None Include="matchmaking_inc.vpc" />
+    <None Include="..\vpc_scripts\platform_dirs.vpc" />
+    <None Include="..\vpc_scripts\source_base.vpc" />
+    <None Include="..\vpc_scripts\source_dll_base.vpc" />
+    <None Include="..\vpc_scripts\source_dll_win32_base.vpc" />
+    <None Include="..\vpc_scripts\source_dll_win32_debug.vpc" />
+    <None Include="..\vpc_scripts\source_dll_win32_release.vpc" />
+    <None Include="..\vpc_scripts\source_lowest_base.vpc" />
+    <None Include="..\vpc_scripts\source_video_base.vpc" />
+    <None Include="..\vpc_scripts\source_win32_base.vpc" />
+    <None Include="..\vpc_scripts\version.vpc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -1,0 +1,153 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudretakeloadout.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/hud/hudretakeloadout.js" />
+	</scripts>
+
+	<Panel class="retake-loadout-host full-width full-height" hittest="false" onload="RetakeLoadoutHUD.OnLoad()">
+		<Panel id="RetakeLoadoutBackdrop" class="retake-loadout__backdrop hidden" hittest="false" />
+		<Panel id="RetakeLoadoutPanel" class="retake-loadout hidden" hittest="true">
+			<Label id="RetakeLoadoutTitle" class="retake-loadout__title" text="ВЫБОР СНАРЯЖЕНИЯ" />
+			<Panel id="RetakeLoadoutCards" class="retake-loadout__row" hittest="true">
+
+				<Button id="RetakeCard0" class="retake-loadout__card" onactivate="RetakeLoadoutHUD.Pick(0)">
+					<Image class="retake-loadout__frame" src="file://{images}/icons/ui/retake_card_frame.png" scaling="stretch-to-fit-preserve-aspect" />
+					<Panel class="retake-loadout__body">
+						<Panel class="retake-loadout__weapon-wrap">
+							<Image id="RetakeCard0Icon" class="retake-loadout__icon" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="80" scaling="stretch-to-fit-preserve-aspect" />
+						</Panel>
+						<Label id="RetakeCard0Name" class="retake-loadout__name" text="" />
+						<Panel id="RetakeCard0Gear" class="retake-loadout__gear">
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard0Sec" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard0Util" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/flashbang.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard0Armor" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/kevlar_helmet.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+						</Panel>
+						<Label class="retake-loadout__key" text="1" />
+					</Panel>
+				</Button>
+
+				<Button id="RetakeCard1" class="retake-loadout__card" onactivate="RetakeLoadoutHUD.Pick(1)">
+					<Image class="retake-loadout__frame" src="file://{images}/icons/ui/retake_card_frame.png" scaling="stretch-to-fit-preserve-aspect" />
+					<Panel class="retake-loadout__body">
+						<Panel class="retake-loadout__weapon-wrap">
+							<Image id="RetakeCard1Icon" class="retake-loadout__icon" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="80" scaling="stretch-to-fit-preserve-aspect" />
+						</Panel>
+						<Label id="RetakeCard1Name" class="retake-loadout__name" text="" />
+						<Panel id="RetakeCard1Gear" class="retake-loadout__gear">
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard1Sec" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard1Util" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/flashbang.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard1Armor" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/kevlar_helmet.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+						</Panel>
+						<Label class="retake-loadout__key" text="2" />
+					</Panel>
+				</Button>
+
+				<Button id="RetakeCard2" class="retake-loadout__card" onactivate="RetakeLoadoutHUD.Pick(2)">
+					<Image class="retake-loadout__frame" src="file://{images}/icons/ui/retake_card_frame.png" scaling="stretch-to-fit-preserve-aspect" />
+					<Panel class="retake-loadout__body">
+						<Panel class="retake-loadout__weapon-wrap">
+							<Image id="RetakeCard2Icon" class="retake-loadout__icon" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="80" scaling="stretch-to-fit-preserve-aspect" />
+						</Panel>
+						<Label id="RetakeCard2Name" class="retake-loadout__name" text="" />
+						<Panel id="RetakeCard2Gear" class="retake-loadout__gear">
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard2Sec" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard2Util" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/flashbang.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard2Armor" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/kevlar_helmet.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+						</Panel>
+						<Label class="retake-loadout__key" text="3" />
+					</Panel>
+				</Button>
+
+				<Button id="RetakeCard3" class="retake-loadout__card" onactivate="RetakeLoadoutHUD.Pick(3)">
+					<Image class="retake-loadout__frame" src="file://{images}/icons/ui/retake_card_frame.png" scaling="stretch-to-fit-preserve-aspect" />
+					<Panel class="retake-loadout__body">
+						<Panel class="retake-loadout__weapon-wrap">
+							<Image id="RetakeCard3Icon" class="retake-loadout__icon" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="80" scaling="stretch-to-fit-preserve-aspect" />
+						</Panel>
+						<Label id="RetakeCard3Name" class="retake-loadout__name" text="" />
+						<Panel id="RetakeCard3Gear" class="retake-loadout__gear">
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard3Sec" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard3Util" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/flashbang.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard3Armor" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/kevlar_helmet.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+						</Panel>
+						<Label class="retake-loadout__key" text="4" />
+					</Panel>
+				</Button>
+
+				<Button id="RetakeCard4" class="retake-loadout__card" onactivate="RetakeLoadoutHUD.Pick(4)">
+					<Image class="retake-loadout__frame" src="file://{images}/icons/ui/retake_card_frame.png" scaling="stretch-to-fit-preserve-aspect" />
+					<Panel class="retake-loadout__body">
+						<Panel class="retake-loadout__weapon-wrap">
+							<Image id="RetakeCard4Icon" class="retake-loadout__icon" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="80" scaling="stretch-to-fit-preserve-aspect" />
+						</Panel>
+						<Label id="RetakeCard4Name" class="retake-loadout__name" text="" />
+						<Panel id="RetakeCard4Gear" class="retake-loadout__gear">
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard4Sec" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard4Util" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/flashbang.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard4Armor" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/kevlar_helmet.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+						</Panel>
+						<Label class="retake-loadout__key" text="5" />
+					</Panel>
+				</Button>
+
+				<Button id="RetakeCard5" class="retake-loadout__card" onactivate="RetakeLoadoutHUD.Pick(5)">
+					<Image class="retake-loadout__frame" src="file://{images}/icons/ui/retake_card_frame.png" scaling="stretch-to-fit-preserve-aspect" />
+					<Panel class="retake-loadout__body">
+						<Panel class="retake-loadout__weapon-wrap">
+							<Image id="RetakeCard5Icon" class="retake-loadout__icon" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="80" scaling="stretch-to-fit-preserve-aspect" />
+						</Panel>
+						<Label id="RetakeCard5Name" class="retake-loadout__name" text="" />
+						<Panel id="RetakeCard5Gear" class="retake-loadout__gear">
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard5Sec" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/hkp2000.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard5Util" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/flashbang.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="retake-loadout__slot">
+								<Image id="RetakeCard5Armor" class="retake-loadout__gear-icon hidden" src="file://{images}/icons/equipment/kevlar_helmet.svg" textureheight="40" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+						</Panel>
+						<Label class="retake-loadout__key" text="6" />
+					</Panel>
+				</Button>
+
+			</Panel>
+			<Label class="retake-loadout__hint" text="1–6 · B снова открыть" />
+		</Panel>
+	</Panel>
+</root>
+

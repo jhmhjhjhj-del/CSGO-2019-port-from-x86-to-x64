@@ -1,0 +1,293 @@
+.card-root
+{
+	width: 100%;
+	height: 100%;
+	vertical-align: bottom;
+	padding: 4px;
+}
+
+.card-root Label
+{
+	text-align: center;
+	color: white;
+	font-family: Stratum2, 'Arial Unicode MS';
+}
+
+.card__inset
+{
+	width: 100%;
+	height: 72%;
+	vertical-align: bottom;
+	horizontal-align: center;
+	border-radius: 8px;
+	box-shadow: 2px 2px 12px #00000088;
+}
+
+.card__inset .card__border
+{
+	width: 100%;
+	height: 100%;
+	border: 2px solid #ffffff;
+	border-radius: 8px;
+}
+
+.card__bg
+{
+	vertical-align: center;
+	horizontal-align: center;
+	width: 100%;
+	height: 100%;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #2a2e24 ), color-stop( 0.45, #1a1c16 ), to( #12140f ) );
+	border-radius: 8px;
+}
+
+.card__contents
+{
+	vertical-align: center;
+	horizontal-align: center;
+	padding-top: 4px;
+	width: 100%;
+	height: 100%;
+}
+
+.emblem--flair
+{
+	width: 36px;
+	height: 36px;
+	vertical-align: top;
+	horizontal-align: right;
+	margin: 8px;
+	visibility: collapse;
+}
+
+.show-flair .emblem--flair
+{
+	visibility: visible;
+}
+
+#jsFlairImage
+{
+	height: 90%;
+	width: height-percentage( 127% );
+	horizontal-align: left;
+	vertical-align: center;
+}
+
+.card__banner
+{
+	width: 28%;
+	height: 58%;
+	horizontal-align: left;
+	vertical-align: top;
+	position: 6px 52px 0px;
+	z-index: 2;
+}
+
+.card__banner .banner-bg
+{
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff;
+	opacity: 0.92;
+	border-radius: 4px;
+}
+
+.card__banner .banner__stat-container
+{
+	width: 100%;
+	height: 100%;
+	flow-children: down;
+	padding-top: 8px;
+	padding-bottom: 6px;
+}
+
+.card__banner .banner__stat-container .banner__stat
+{
+	width: 100%;
+	flow-children: down;
+	horizontal-align: center;
+}
+
+.card__banner .banner__stat-container .banner__stat .value
+{
+	horizontal-align: center;
+	vertical-align: center;
+	color: white;
+	text-shadow: 1px 1px 2px 2 #000000aa;
+}
+
+.card__banner .banner__stat-container .banner__stat .desc
+{
+	height: 16px;
+	font-size: 11px;
+	horizontal-align: center;
+	text-overflow: shrink;
+	letter-spacing: 1px;
+	color: #111111;
+	font-weight: bold;
+}
+
+.card__banner .banner__stat-container .banner__stat.gglevel .value,
+.card__banner .banner__stat-container .banner__stat.adr .value,
+.card__banner .banner__stat-container .banner__stat.score .value
+{
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.card__banner .banner__stat-container .banner__stat.kda .value
+{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.card__banner .banner__stat-container .banner__stat.hsp .value,
+.card__banner .banner__stat-container .banner__stat.kills .value,
+.card__banner .banner__stat-container .banner__stat.deaths .value
+{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.highlight-adr .banner__stat.adr .value,
+.highlight-hsp .banner__stat.hsp .value
+{
+	color: #ffe566;
+}
+
+.card__main
+{
+	width: 100%;
+	height: 100%;
+}
+
+.card__main .card__avatar-container
+{
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 10px;
+	border: 1px solid #505050;
+}
+
+.card__main .card__avatar-container .card__avatar
+{
+	width: 100%;
+	height: width-percentage( 100% );
+}
+
+.card__main .emblem--skillgroup
+{
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 78px;
+	opacity: 0;
+	height: 36px;
+	width: 48px;
+}
+
+.show-skillgroup .card__main .emblem--skillgroup
+{
+	opacity: 1;
+}
+
+.card__main .card__main__lower
+{
+	width: 100%;
+	height: 38%;
+	vertical-align: bottom;
+	flow-children: down;
+	margin: 0px 8px 6px 8px;
+}
+
+.card__main .card__main__lower .card__player-name
+{
+	horizontal-align: center;
+}
+
+.card__main .card__main__lower .card__player-name Label
+{
+	vertical-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 170px;
+}
+
+.card__main .card__main__lower .divider
+{
+	width: 100%;
+	height: 1px;
+	background-color: #ffffff18;
+	margin-top: 2px;
+}
+
+.card__main .card__main__lower .card__accolade-container
+{
+	flow-children: down;
+	width: 100%;
+	height: fill-parent-flow( 1 );
+	visibility: collapse;
+}
+
+.card__main .card__main__lower .card__accolade-container .title
+{
+	margin-top: 8px;
+	horizontal-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	font-style: italic;
+	text-overflow: shrink;
+	color: #f2f2f2;
+}
+
+.card__main .card__main__lower .card__accolade-container .detail
+{
+	font-size: 13px;
+	margin-top: 4px;
+	horizontal-align: center;
+	text-overflow: shrink;
+	color: #c8c8c8;
+}
+
+.show-accolade .card__main .card__main__lower .card__accolade-container
+{
+	visibility: visible;
+}
+
+.sliding-panel
+{
+	opacity: 0;
+	transform: translateX( 40px );
+}
+
+.sliding-panel.slide
+{
+	animation-name: card-slide;
+	animation-duration: 0.35s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	opacity: 1;
+	transform: translateX( 0px );
+}
+
+@keyframes 'card-slide'
+{
+	0%
+	{
+		opacity: 0;
+		transform: translateX( 40px );
+		brightness: 3;
+	}
+
+	100%
+	{
+		opacity: 1;
+		transform: translateX( 0px );
+		brightness: 1;
+	}
+}

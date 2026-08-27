@@ -1,0 +1,439 @@
+@define chatBgGrey: rgba(94, 94, 94, 0.5);
+
+.chat-panel-outer
+{
+	opacity: 1;
+	visibility: visible;
+	horizontal-align: right;
+	vertical-align: top;
+	padding-right: 100px;
+	z-index: 1;
+
+	transition-property: clip, position;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.accept-match .chat-panel-outer
+{
+	horizontal-align: center;
+	padding-right: 0px;
+}
+
+.chat-panel-outer.hidden
+{
+	opacity: 0;
+	visibility: collapse;
+
+	transition-property: opacity;
+	transition-duration: .3s;
+	transition-timing-function: ease-in-out;
+}
+
+.MainMenuRootPanel--PauseMenuMode .chat-panel-outer
+{	                            
+	opacity: 0;
+	visibility: collapse;
+}
+
+.chat-panel
+{
+	width: 420px;
+	
+	opacity: 1;
+	visibility: visible;
+
+	transition-property: opacity, brightness;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-in-out;
+}
+
+.AspectRatio5x4 .chat-panel
+{
+	width: 400px;
+}
+
+.AspectRatio16x9 .chat-panel,
+.AspectRatio16x10 .chat-panel,
+{
+	width: 520px;
+}
+
+.chat-panel .TickBox
+{
+	visibility: collapse;
+}
+
+.chat-panel.hidden
+{
+	opacity: 0;
+	visibility: collapse;
+
+	transition-property: opacity, transform;
+	transition-duration: .3s;
+	transition-timing-function: ease-in-out;
+}
+
+.chat-container
+{
+	vertical-align: top;
+	                               
+	                      
+	width: 100%;
+	max-height: 210px;
+	                          
+
+	transition-property: height;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-in-out;
+}
+
+.chat-container.closed-minimized
+{
+	max-height: 95px;
+
+	transition-property: height;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-in-out;
+}
+
+.chat-open
+{
+	height: fit-children;
+	max-height: 400px;
+}
+
+.chat-container__lines
+{
+	height: fit-children;
+	width: 100%;
+	padding: 0px 0px;
+	overflow: squish scroll;
+	flow-children: up;
+	vertical-align: bottom;
+	                                                                                                               
+	                                               
+
+	transition-property: background-color;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-in-out;
+}
+
+.chat-container:hover .chat-panel-blur
+{
+	opacity: 1;
+}
+
+.chat-container.chat-open .chat-container__lines
+{
+	height: 300px;
+	overflow: squish scroll;
+
+	transition-property: background-color;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+.chat-panel-blur
+{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.55);
+	                           
+	opacity: .1;
+
+	transition-property: opacity;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+
+}
+
+.accept-match .chat-panel-blur
+{
+	background-color: rgb(39, 46, 51);
+	
+}
+
+.chat-open .chat-panel-blur
+{
+	                          
+	opacity: 1;
+}
+
+                                                                               
+                                                                               
+                                                                               
+
+.chat-entry
+{
+	padding: 0px 0px 0px 0px;
+	margin: 3px 0px 0px 0px;
+	height: fit-children;
+	width: fit-children;
+}
+
+.chat-entry .left-right-flow
+{
+	flow-children: right;
+	width: fit-children;
+	height: fit-children;
+	vertical-align: center;
+}
+
+.player-color__yellow .chat-entry__name { color: color-player-yellow; }
+.player-color__purple .chat-entry__name{  color: color-player-purple; }
+.player-color__green .chat-entry__name {  color: color-player-green; }
+.player-color__blue .chat-entry__name { color: color-player-blue; }
+.player-color__orange .chat-entry__name {  color: color-player-orange; }
+
+.self-chat Label
+{
+	                                         
+	horizontal-align: left;
+}
+
+.chat-entry Label
+{
+	color: white;
+	font-size: 15px;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( rgba(0, 0, 0, 0.55)), to( rgba(0, 0, 0, 0.0)) );
+	text-shadow-fast: 2px 1px rgba(0, 0, 0, 0.8);
+	padding: 2px 6px 2px 2px;
+	text-align: left;
+	white-space: normal;
+	width: fit-children;
+	max-width: 480px;
+	vertical-align: center;
+	margin-left: 0px;
+
+	transition-property: background-color;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
+
+	animation-name: chat-new-entry;
+	animation-duration: .2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+.AspectRatio5x4 .chat-entry Label
+{
+	max-width: 360px;
+}
+
+.AspectRatio16x9 .chat-entry Label,
+.AspectRatio16x10 .chat-entry Label
+{
+	max-width: 480px;
+}
+
+.chat-open .chat-entry:not(.error-message) Label
+{
+	background-color: none;
+}
+.chat-entry__player-invited
+{
+	flow-children: right;
+	height: fit-children;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( blueColor), to( rgba(0, 0, 0, 0.0)) );
+}
+
+.chat-entry__player-invited Image
+{
+	vertical-align: center;
+	padding-left: 8px;
+}
+
+.chat-entry__player-invited Label
+{
+	background-color: none;
+	padding: 2px 0px 2px 8px;
+}
+
+.error-message Label
+{
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #c21b1baa ), to( rgba(0, 0, 0, 0.0)) );
+}
+
+.error-message--green Label
+{
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #4caf50aa ), to( rgba(0, 0, 0, 0.0)) );
+}
+
+.error-message--yellow Label
+{
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #b1af2daa ), to( rgba(0, 0, 0, 0.0)) );
+}
+
+.tournament-matchmaking-status
+{
+	                       
+}
+
+.chat-entry CSGOAvatarImage
+{
+	vertical-align: center;
+	visibility: collapse;
+	width: 28px;
+	height: 28px;
+	min-width: 28px;
+	min-height: 28px;
+	max-width: 28px;
+	max-height: 28px;
+	margin: 0px 4px 0px 4px;
+	padding: 0px;
+}
+
+.chat-open .chat-entry CSGOAvatarImage
+{
+	visibility: visible;
+}
+
+@keyframes 'chat-new-entry'
+{
+	0%
+	{
+		transform: translateX(-100%);
+		brightness: 10;
+	}
+
+	80%
+	{
+		brightness: 10;
+	}
+
+	100%
+	{
+		brightness: 1;
+		transform: translateX(0%);
+	}
+}
+
+.chat-open-text
+{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+                                                                               
+                                                                               
+                                                                               
+.chat-container__input-container
+{
+	visibility: collapse;
+	height: 48px;
+	width: 100%;
+	vertical-align: bottom;
+
+	transition-property: position;
+	transition-duration: .1s;
+	transition-timing-function: ease-in-out;
+}
+
+.chat-container__input
+{
+	visibility: collapse;
+	font-size: 18px;
+	width: 100%;
+	color: White;
+	padding-left: 8px;
+	margin: 0px 6px;
+	border: 0px solid white;
+
+	vertical-align: center;
+	border-radius: 0px;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+TextEntry.chat-container__input #PlaceholderText
+{
+	opacity: .5;
+	transition-property: opacity;
+	transition-duration: 0.2s;
+	color: rgb(184, 181, 181);
+	font-size: 18px;
+}
+
+TextEntry.chat-container__input.HasInput #PlaceholderText
+{
+	opacity: 0.0;
+}
+
+.chat-container__input:focus
+{
+	border-bottom: 0px;                                                  
+}
+
+.chat-container.chat-open .chat-container__input-container,
+.chat-container.chat-open .chat-container__input
+{
+	visibility: visible;
+}
+
+                                                                               
+                                                                               
+                                                                               
+.chat-container__close
+{
+	width: 100%;
+	height:fit-children;
+	visibility: collapse;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	background-color: rgba(255, 255, 255, 0.0);
+
+	transition-property: background-color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.chat-container.chat-open .chat-container__close
+{
+	visibility: visible;
+}
+
+.chat-container__close__icon
+{
+	horizontal-align: center;
+	margin: 8px 0px;
+	height: 16px;
+	width: 16px;
+	vertical-align: top;
+	transform: rotateZ( 180deg );
+
+	transition-property: brightness;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.chat-container__close:Hover 
+{
+	background-color: rgba(255, 255, 255, 0.1);
+
+	transition-property: background-color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+/* Default: hide stray avatars in this layout; chat-open rule above re-shows line avatars. */
+CSGOAvatarImage
+{
+	visibility: collapse;
+}
+
+/* Full-screen click catcher while ChatInput has focus (created from chat.js). */
+.chat-input-focus-catcher
+{
+	width: 100%;
+	height: 100%;
+	horizontal-align: center;
+	vertical-align: center;
+	z-index: 2;
+	background-color: #00000000;
+}
+
+.chat-input-focus-catcher.Hidden
+{
+	visibility: collapse;
+	opacity: 0;
+}

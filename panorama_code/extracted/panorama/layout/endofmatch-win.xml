@@ -1,0 +1,34 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/endofmatch.css" />
+		<include src="file://{resources}/styles/endofmatch-skillgroup.css" />
+		<include src="file://{resources}/styles/endofmatch-win.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/endofmatch-win.js" />
+		<include src="file://{resources}/scripts/common/gamerules_constants.js" />
+	</scripts>
+
+	<Panel class="eom-win eom-win__main" useglobalcontext="true">
+		<Panel id="WinTeam" class="eom-win__main">
+			<Panel class="eom-win__main__data">
+				<Panel id="eom-win-panel-score" class="eom-win__main__score">
+					<Panel class="eom-win__main__line" />
+					<Panel class="eom-win__main__line vertical-align-bottom" />
+					<Panel class="eom-win__main__score__container">
+						<Label class="fontSize-xl eom-win__main__score__text local-player-score" text="{d:score_local_player}" />
+						<Label class="fontSize-xl eom-win__main__score__text" text="-" />
+						<Label class="fontSize-xl eom-win__main__score__text" text="{d:score_other}" />
+					</Panel>
+				</Panel>
+				<Panel id="eom-win-panel-result" class="eom-win__main__result">
+					<Panel class="eom-win__main__line" />
+					<Panel class="eom-win__main__line vertical-align-bottom" />
+					<Label class="eom-win__main__result__text" text="{s:win-result}" />
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="WinPlayers" class="full-width full-height hidden" />
+	</Panel>
+</root>

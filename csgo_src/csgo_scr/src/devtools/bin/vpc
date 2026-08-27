@@ -1,0 +1,133 @@
+#!/bin/bash
+
+OS=`uname`
+SCRIPTPATH=`dirname $0`
+FORCEARG=""
+DOCKER_BUILD_CMD="true"
+DOCKER_RUN_CMD=""
+
+function setup_docker() {
+	echo ""
+	echo "You do not have docker installed on your system. The script will attempt to set it up now."
+	echo "This requires sudo privileges, so you will be prompted once (or maybe a few times"
+	echo "depending on your machine settings) to enter your sudo password."
+	echo ""
+
+	if [ $(lsb_release -si) != "Ubuntu" ]; then
+		echo "This function currently only supports Ubuntu. Patches welcome!"
+		exit -1;
+	fi
+
+	set -e # Bail on first error.
+
+	sudo -K # Clear sudo to make them type the password once.
+	sudo true # Force them to enter their password here.
+
+	# Let them see what we're doing.
+	set -x
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+		&& sudo apt update \
+		&& sudo apt install -y docker-ce
+
+	if [ -f /etc/docker/daemon.json ]; then
+		{ echo ""; echo "You must merge in the key \"dns\": [ \"10.10.10.10\" ] to /etc/docker/daemon.json"; } 2> /dev/null
+	else
+		echo '{ "dns": [ "10.10.10.10" ] }' | sudo tee /etc/docker/daemon.json > /dev/null
+	fi
+
+	if [ -f /etc/systemd/system/docker.service.d/proxy.conf ]; then
+		{
+			echo ""
+			echo "You must merge proxy settings into the proxy file at /etc/systemd/system/docker.service.d/proxy.conf"
+			echo "They look like this:"
+			echo "[Service]"
+			echo "Environment=\"HTTP_PROXY=http://proxy:3128/\" \"HTTPS_PROXY=http://proxy:3128\" \"NO_PROXY=localhost,.valvesoftware.com,.valve.org,127.0.0.0/8\""
+		} 2> /dev/null
+	else
+		sudo mkdir -p /etc/systemd/system/docker.service.d
+		echo '[Service]' | sudo tee /etc/systemd/system/docker.service.d/proxy.conf > /dev/null
+		echo 'Environment="HTTP_PROXY=http://proxy:3128/" "HTTPS_PROXY=http://proxy:3128" "NO_PROXY=localhost,.valve.org,127.0.0.0/8"' | sudo tee --append /etc/systemd/system/docker.service.d/proxy.conf > /dev/null
+	fi
+
+	sudo systemctl daemon-reload
+	sudo systemctl restart docker  
+	sudo usermod -aG docker ${USER}
+
+	set +x
+	set +e
+
+	echo "To complete installation, you must re-login. The easiest thing to do is reboot. When you"
+	echo "are ready, please do so. The build will not behave correctly until groups are reloaded,"
+	echo "which unfortunately only happens at user login."
+	sudo -K # Delete the sudo file for this user, we're all done.
+}
+
+case $OS in
+"Darwin")
+	BINNAME=vpc_osx
+	;;
+"Linux")
+	BINNAME=vpc_linux
+	;;
+*)
+	echo "Couldn't find appropriate VPC binary, fix the script."
+	exit -1
+	;;
+esac
+
+if [ ${USE_DOCKER:-0} -ne 0 ]; then
+	if [[ "${@#/linux64}" = "$@" ]]; then
+		DOCKER_FLAVOR="server"
+	else
+		DOCKER_FLAVOR="client"
+	fi
+	DOCKER_BUILD_CMD="docker build -t build_csgo_${DOCKER_FLAVOR}:latest -f devtools/docker/${DOCKER_FLAVOR}.dockerfile devtools/docker"
+	# Note: if you want to run interactively in the container (like running bash inside the container) you need to pass -t as well.
+	DOCKER_RUN_CMD='docker run -i --rm -v `echo ~`:`echo ~` -v ${CWD}/..:${CWD}/.. -e P4CONFIG=$P4CONFIG -w ${PWD} -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro -u=$UID:$(id -g $USER) -h=`hostname` build_csgo_${DOCKER_FLAVOR}:latest dumb-init'
+
+	docker -v &> /dev/null
+	if [ $? -ne 0 ]; then
+		setup_docker
+		exit -1
+	fi
+fi
+
+${DOCKER_BUILD_CMD}
+
+if [ $? -ne 0 ]; then
+	exit -1
+fi
+
+CWD=`pwd`
+cd $SCRIPTPATH/../../utils/vpc
+# ask make if we need to do any work, returns 0 if we don't,
+# non zero if we do.  
+
+eval $DOCKER_RUN_CMD make -q
+RC=$?
+if [ $RC -eq 1 ]; then
+	FORCEARG="/f"
+elif [ $RC -eq 2 ]; then
+	FORCEARG="/f"
+	eval $DOCKER_RUN_CMD make clean
+fi
+
+eval $DOCKER_RUN_CMD make -j4 
+
+if [ $? -ne 0 ]; then
+	exit -1
+fi
+
+if [ $RC -ne 0 ]; then
+	cp -vf ../../devtools/bin/$BINNAME $CWD/$SCRIPTPATH
+fi
+
+cd $CWD
+
+if [ $OS == "Darwin" ] || [ $OS == "Linux" ]; then
+	eval $DOCKER_RUN_CMD $SCRIPTPATH/$BINNAME $FORCEARG $@
+else
+	echo "Couldn't find appropriate VPC binary, fix the script."
+	exit -1
+fi

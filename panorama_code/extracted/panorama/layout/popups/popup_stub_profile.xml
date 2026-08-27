@@ -1,0 +1,58 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_stub_profile.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/stub_local_profile.js" />
+		<include src="file://{resources}/scripts/popups/popup_stub_profile.js" />
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel stub-profile-window"
+		useglobalcontext="true"
+		popupbackground="dim"
+		onload="StubProfile.Init();">
+
+		<Panel class="stub-profile-frame">
+			<Panel class="stub-profile-banner">
+				<Panel class="stub-profile-banner-shade"/>
+			</Panel>
+
+			<Panel class="stub-profile-body">
+				<Panel class="stub-profile-avatar-wrap">
+					<Image id="StubProfileAvatar" class="stub-profile-avatar"
+						src="file://{images}/icons/ui/player.svg"
+						scaling="stretch-to-fit-preserve-aspect" />
+					<Button id="StubProfileAvatarBtn" class="stub-profile-avatar-btn"
+						onactivate="StubProfile.PickAvatar();">
+						<Label text="Сменить"/>
+					</Button>
+					<Button class="stub-profile-avatar-btn stub-profile-avatar-btn-secondary"
+						onactivate="StubProfile.ClearAvatar();">
+						<Label text="Сброс"/>
+					</Button>
+				</Panel>
+
+				<Panel class="stub-profile-main">
+					<Label class="stub-profile-heading" text="Профиль (offline)" />
+					<Label class="stub-profile-sub" text="Ник и аватар" />
+
+					<Label class="stub-profile-field-label" text="Никнейм" />
+					<TextEntry id="StubProfileName" class="stub-profile-name-entry"
+						maxchars="32" text=""
+						onchange="StubProfile.OnNameChanged();" />
+
+					<Label id="StubProfileStatus" class="stub-profile-status" text="" />
+				</Panel>
+			</Panel>
+
+			<Panel class="PopupButtonRow stub-profile-actions">
+				<TextButton class="PopupButton Positive" text="Сохранить"
+					onactivate="StubProfile.Save();" />
+				<TextButton class="PopupButton" text="#UI_Cancel"
+					onactivate="UIPopupButtonClicked()" />
+			</Panel>
+		</Panel>
+	</PopupCustomLayout>
+</root>

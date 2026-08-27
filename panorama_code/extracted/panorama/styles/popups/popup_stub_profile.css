@@ -1,0 +1,162 @@
+.PopupPanel.stub-profile-window
+{
+	width: 620px;
+	min-width: 620px;
+	max-width: 620px;
+	padding: 0px;
+	flow-children: none;
+	background-color: #1b2838;
+	border: 1px solid #00000088;
+}
+
+.stub-profile-frame
+{
+	width: 100%;
+	flow-children: down;
+}
+
+.stub-profile-banner
+{
+	width: 100%;
+	height: 120px;
+	background-color: gradient( linear, 0% 0%, 100% 100%, from( #1a9fff ), to( #0b3d66 ) );
+}
+
+.stub-profile-banner-shade
+{
+	width: 100%;
+	height: 100%;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #00000000 ), to( #1b2838 ) );
+}
+
+.stub-profile-body
+{
+	width: 100%;
+	flow-children: right;
+	padding: 0px 20px 12px 20px;
+	margin-top: -48px;
+}
+
+.stub-profile-avatar-wrap
+{
+	width: 104px;
+	flow-children: down;
+	margin-right: 16px;
+}
+
+.stub-profile-avatar
+{
+	width: 96px;
+	height: 96px;
+	border: 3px solid #1b2838;
+	background-color: #2a475e;
+}
+
+.stub-profile-avatar-btn
+{
+	width: 96px;
+	height: 28px;
+	margin-top: 6px;
+	background-color: #2a475e;
+}
+
+.stub-profile-avatar-btn-secondary
+{
+	background-color: #3a3a3a;
+}
+
+.stub-profile-avatar-btn Label
+{
+	horizontal-align: center;
+	vertical-align: center;
+	font-size: 14px;
+	color: #c7d5e0;
+}
+
+.stub-profile-avatar-btn:hover
+{
+	background-color: #3d6a8a;
+}
+
+.stub-profile-main
+{
+	width: fill-parent-flow( 1 );
+	flow-children: down;
+	padding-top: 52px;
+}
+
+.stub-profile-heading
+{
+	font-size: 22px;
+	font-weight: bold;
+	color: #ffffff;
+	font-family: Stratum2, 'Arial Unicode MS';
+}
+
+.stub-profile-sub
+{
+	font-size: 13px;
+	color: #8f98a0;
+	margin-bottom: 12px;
+}
+
+.stub-profile-field-label
+{
+	font-size: 13px;
+	color: #8f98a0;
+	margin-top: 6px;
+	margin-bottom: 4px;
+	text-transform: uppercase;
+}
+
+.stub-profile-grid
+{
+	width: 100%;
+	flow-children: right-wrap;
+	margin-top: 4px;
+}
+
+.stub-profile-grid-cell
+{
+	width: 48%;
+	margin-right: 2%;
+	flow-children: down;
+}
+
+.stub-profile-name-entry,
+.stub-profile-path-entry
+{
+	width: 100%;
+	height: 36px;
+	font-size: 16px;
+	color: #ffffff;
+	background-color: #316282;
+	border: 1px solid #00000066;
+	padding: 4px 8px;
+}
+
+.stub-profile-presets
+{
+	flow-children: right;
+	margin-top: 10px;
+}
+
+.stub-profile-preset
+{
+	margin-right: 8px;
+}
+
+.stub-profile-status
+{
+	width: 100%;
+	min-height: 18px;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #66c0f4;
+}
+
+.stub-profile-actions
+{
+	width: 100%;
+	padding: 8px 20px 16px 20px;
+}

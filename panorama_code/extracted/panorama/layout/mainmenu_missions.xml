@@ -1,0 +1,32 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/operation/operation_shared.css" />
+		<include src="file://{resources}/styles/operation/operation_mission_card.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/mainmenu_missions.js" />
+	</scripts>
+
+	<Panel class="mainmenu-content__container" onload="mainmenu_missions.Init();">
+		<Panel class="content-navbar">
+			<Label class="content-navbar__title" text="Missions"/>
+		</Panel>
+		<Panel class="op-mission-card show" style="height: 100%;">
+			<Panel class="op-mission-card-contents">
+				<Panel class="op-mission-card-contents__info">
+					<Panel class="op-mission-card-contents__info__containter complete-tag right-margin-medium">
+						<Image class="op-mission-card__mission__icon no-padding" src="file://{images}/icons/ui/quest.svg" textureheight="18" texturewidth="-1"/>
+						<Label class="op-mission-card-contents__info__desc left-padding" text="Offline missions"/>
+					</Panel>
+					<Panel class="op-mission-card-contents__info__containter">
+						<Image class="op-mission-card__mission__icon no-padding" src="file://{images}/icons/ui/check.svg" textureheight="18" texturewidth="-1"/>
+						<Label id="JsMissionsStars" class="op-mission-card-contents__info__desc left-padding" text=""/>
+					</Panel>
+				</Panel>
+				<Panel id="JsMissionsList" class="op-mission-card__missions-container"/>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

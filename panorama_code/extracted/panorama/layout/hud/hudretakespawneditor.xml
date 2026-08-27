@@ -1,0 +1,62 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudretakespawneditor.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/hud/hudretakespawneditor.js" />
+	</scripts>
+
+	<Panel class="RetakeSpawnEditorRoot hidden" hittest="false">
+		<Panel class="RetakeSpawnEditorPanel" hittest="true">
+			<Label id="RseTitle" class="rse-title" text="SPAWN EDITOR" />
+			<Label id="RseMap" class="rse-map" text="" />
+
+			<Panel class="rse-row">
+				<Label class="rse-hint" text="[1]" />
+				<Button id="RseTeamBtn" class="rse-toggle" onactivate="RetakeSpawnEditorHUD.ToggleTeam();">
+					<Label id="RseTeamLabel" text="CT" />
+				</Button>
+				<Label class="rse-caption" text="CT / T / BOMB" />
+			</Panel>
+
+			<Panel class="rse-row">
+				<Label class="rse-hint" text="[2]" />
+				<Button id="RseSiteBtn" class="rse-toggle" onactivate="RetakeSpawnEditorHUD.ToggleSite();">
+					<Label id="RseSiteLabel" text="A" />
+				</Button>
+				<Label class="rse-caption" text="Плент A/B" />
+			</Panel>
+
+			<Panel class="rse-sep" />
+
+			<Panel class="rse-row rse-actions">
+				<Button class="rse-action" onactivate="RetakeSpawnEditorHUD.Place();">
+					<Label text="[E] Поставить" />
+				</Button>
+				<Button class="rse-action" onactivate="RetakeSpawnEditorHUD.Undo();">
+					<Label text="[Z] Undo" />
+				</Button>
+				<Button class="rse-action" onactivate="RetakeSpawnEditorHUD.DeleteNearest();">
+					<Label text="[Del] Ближ." />
+				</Button>
+			</Panel>
+
+			<Panel class="rse-sep" />
+
+			<Label id="RseCounts" class="rse-counts" text="CT·A 0  CT·B 0  T·A 0  T·B 0  C4·A 0  C4·B 0" />
+			<Label id="RseTotal" class="rse-total" text="всего: 0" />
+
+			<Panel class="rse-sep" />
+
+			<Panel class="rse-row rse-actions">
+				<Button class="rse-action" onactivate="RetakeSpawnEditorHUD.Save();">
+					<Label text="Save" />
+				</Button>
+				<Button class="rse-action" onactivate="RetakeSpawnEditorHUD.Close();">
+					<Label text="[F7] Закрыть" />
+				</Button>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

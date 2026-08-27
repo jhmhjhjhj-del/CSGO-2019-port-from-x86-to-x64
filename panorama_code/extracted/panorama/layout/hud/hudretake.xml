@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudretake.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/hud/hudretake.js" />
+	</scripts>
+
+	<Panel class="retake-hud hidden" hittest="false" onload="RetakeHUD.OnLoad()">
+		<Panel class="retake-hud__banner">
+			<Label id="RetakeSiteLabel" class="retake-hud__label" text="" />
+		</Panel>
+	</Panel>
+</root>

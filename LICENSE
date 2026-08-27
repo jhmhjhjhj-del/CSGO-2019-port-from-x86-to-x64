@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 jhmhjhjhj-del
+Copyright (c) 2024-2026 Goldy
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,31 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+-------------------------------------------------------------------------------
+ADDITIONAL TERMS (attribution + closed binaries) — also required
+
+1. Author credit
+   - The author of this project is Goldy.
+   - You may not remove, obscure, or replace author attribution (name "Goldy")
+     from LICENSE, README, or other notices shipped with this project.
+   - If you republish or distribute modified or unmodified copies of the open
+     source portions, you must credit Goldy as the original author.
+
+2. Closed modules (NOT open source)
+   - The following binaries (and any future replacements with the same role)
+     are proprietary to Goldy and are NOT licensed under the MIT terms above:
+       • offline_steam_x64.dll
+       • offline_inventory_x64.dll
+   - You may use these binaries only together with this project as distributed
+     by Goldy, for running / developing against the open sources.
+   - You may NOT reverse engineer, decompile, disassemble, or otherwise attempt
+     to derive source code from these closed binaries.
+   - You may NOT redistribute the closed binaries alone, or ship a public source
+     tree that claims to be complete while omitting the required closed DLLs
+     without clearly stating that inventory / local GC / AutoMM will not work.
+
+3. Conflict
+   - If these Additional Terms conflict with MIT for the closed binaries, the
+     Additional Terms control for those binaries only. MIT continues to apply
+     to the published source files.

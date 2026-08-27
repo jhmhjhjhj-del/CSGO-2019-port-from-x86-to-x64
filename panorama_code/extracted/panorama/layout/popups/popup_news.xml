@@ -1,0 +1,38 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_news.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_news.js" />
+	</scripts>
+
+	<PopupCustomLayout class="popup-news Hidden PopupPanel"
+					useglobalcontext="true"
+					popupbackground="dim"
+					onload="PopupNews.Init();"
+					oncancel="PopupNews.Close();">
+
+		<Panel class="popup-news__header">
+			<Panel class="popup-news__title-block">
+				<Label id="id-date" class="popup-news__date" text="{s:news_date}"/>
+				<Label id="id-title" class="popup-news__title" text="{s:news_title}"/>
+			</Panel>
+			<Button id="id-news-close-x" class="popup-news__close-x" onactivate="PopupNews.Close();">
+				<Image texturewidth="20" textureheight="-1" src="file://{images}/icons/ui/exit.svg"/>
+			</Button>
+		</Panel>
+
+		<Image id="id-news-image" class="popup-news__image" scaling="stretch-to-fit-x-preserve-aspect" src=""/>
+
+		<Panel class="popup-news__body-scroll vscroll">
+			<Label id="id-news-body" class="popup-news__body" html="true" text="{s:h:news_body}"/>
+		</Panel>
+
+		<Panel class="PopupButtonRow">
+			<TextButton class="PopupButton" text="#GameUI_Close" onactivate="PopupNews.Close();"/>
+		</Panel>
+	</PopupCustomLayout>
+</root>

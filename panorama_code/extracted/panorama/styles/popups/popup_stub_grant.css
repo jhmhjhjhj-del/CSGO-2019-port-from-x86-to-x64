@@ -1,0 +1,234 @@
+.PopupPanel.stub-grant-window
+{
+	width: 920px;
+	min-width: 920px;
+	max-width: 920px;
+	padding-bottom: 8px;
+}
+
+.PopupPanel.stub-grant-window.stub-grant-moved,
+.PopupPanel.stub-grant-window.stub-grant-dragging
+{
+	horizontal-align: left;
+	vertical-align: top;
+	margin: 0px;
+	transition-property: none;
+	transition-duration: 0.0s;
+}
+
+.stub-grant-titlebar
+{
+	flow-children: right;
+	width: 100%;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	padding-right: 28px;
+	padding-left: 28px;
+	margin-bottom: 8px;
+}
+
+.stub-grant-title-text
+{
+	font-size: 28px;
+	font-weight: bold;
+	color: rgb(151, 151, 151);
+	font-family: Stratum2, 'Arial Unicode MS';
+}
+
+.stub-grant-tabs
+{
+	flow-children: right;
+	width: 100%;
+	padding: 0px 12px;
+	margin-bottom: 8px;
+	border-bottom: 1px solid #414141;
+	overflow: squish scroll;
+}
+
+.stub-grant-tabs RadioButton
+{
+	margin: 0px 2px 0px 0px;
+	padding: 8px 8px;
+	height: 40px;
+	background-color: none;
+}
+
+.stub-grant-tabs RadioButton .RadioBox
+{
+	visibility: collapse;
+	width: 0px;
+	height: 0px;
+	min-width: 0px;
+	min-height: 0px;
+	border: 0px solid #00000000;
+	box-shadow: none;
+}
+
+.stub-grant-tabs RadioButton Label
+{
+	margin-left: 0px;
+	font-size: 14px;
+	color: #9a9a9a;
+}
+
+.stub-grant-tabs RadioButton:hover Label
+{
+	color: #ffffff;
+}
+
+.stub-grant-tabs RadioButton:selected
+{
+	background-color: gradient( linear, 0% 100%, 0% 92%, from( white ), color-stop( .9, white ), to( #ffffff00 ) );
+}
+
+.stub-grant-tabs RadioButton:selected Label
+{
+	color: #ffffff;
+}
+
+.stub-grant-split
+{
+	flow-children: right;
+	width: 100%;
+	height: 400px;
+	padding: 0px 20px;
+}
+
+.stub-grant-col
+{
+	flow-children: down;
+	width: 280px;
+	height: 100%;
+	margin-right: 12px;
+}
+
+.stub-grant-col.stub-grant-col-main
+{
+	width: fill-parent-flow( 1.0 );
+	margin-right: 0px;
+}
+
+.stub-grant-col.hidden
+{
+	visibility: collapse;
+	width: 0px;
+	margin-right: 0px;
+}
+
+.stub-grant-col-head
+{
+	font-size: 14px;
+	color: #8a8a8a;
+	margin-bottom: 6px;
+	text-transform: uppercase;
+}
+
+.stub-grant-list-wrap
+{
+	width: 100%;
+	height: fill-parent-flow( 1.0 );
+	border: 1px solid #414141;
+	background-color: #1a1a1aff;
+}
+
+.stub-grant-list
+{
+	width: 100%;
+	height: 100%;
+	overflow: squish scroll;
+	flow-children: down;
+	padding: 4px;
+}
+
+.stub-grant-item
+{
+	width: 100%;
+	height: 32px;
+	padding: 4px 10px;
+	background-color: #00000000;
+}
+
+.stub-grant-item:hover
+{
+	background-color: #2a2a2aff;
+}
+
+.stub-grant-item.selected
+{
+	background-color: #3a5a3aff;
+}
+
+.stub-grant-item Label
+{
+	font-size: 15px;
+	color: #dddddd;
+	vertical-align: center;
+	text-overflow: ellipsis;
+	width: 100%;
+}
+
+.stub-grant-opts
+{
+	flow-children: right;
+	width: 100%;
+	padding: 8px 28px 0px 28px;
+	height: 40px;
+}
+
+.stub-grant-opts.hidden
+{
+	visibility: collapse;
+	height: 0px;
+	padding: 0px;
+}
+
+.stub-grant-opts-label
+{
+	font-size: 14px;
+	color: #8a8a8a;
+	vertical-align: center;
+	margin-right: 8px;
+}
+
+.stub-grant-wear
+{
+	width: 180px;
+	height: 32px;
+	vertical-align: center;
+	margin-right: 16px;
+}
+
+.stub-grant-wear.hidden,
+.stub-grant-opts-label.hidden,
+.stub-grant-st.hidden
+{
+	visibility: collapse;
+	width: 0px;
+	margin: 0px;
+}
+
+.stub-grant-st
+{
+	vertical-align: center;
+}
+
+.stub-grant-st Label
+{
+	font-size: 14px;
+	color: #dddddd;
+}
+
+.stub-grant-status
+{
+	width: 100%;
+	min-height: 20px;
+	padding: 4px 28px 0px 28px;
+	font-size: 16px;
+	color: #91AF49;
+}
+
+.stub-grant-ghost
+{
+	opacity: 0.0;
+	background-color: none;
+}
